@@ -28,7 +28,7 @@ namespace KeyBord
         {
             InitializeComponent();
         }
-        private void CapitalLetters()
+        private void IfPressedShiftLetters()
         {
             this.LetterY.Content = "Ё";
             this.Q.Content = "Й";
@@ -65,7 +65,7 @@ namespace KeyBord
             this.Dot.Content = "Ю";
 
         }
-        private void LoverLetters()
+        private void WithoutShiftLetter()
         {
             this.LetterY.Content = "ё";
             this.Q.Content = "й";
@@ -101,7 +101,7 @@ namespace KeyBord
             this.Comma.Content = "б";
             this.Dot.Content = "ю";
         }
-        private void CapitalSymbol()
+        private void IfPressedShiftSymbol()
         {
 
             this.D1.Content = "!";
@@ -119,7 +119,7 @@ namespace KeyBord
             this.Backslash.Content = "/";
             this.Slash.Content = ",";
         }
-        private void LoverSymbol()
+        private void WithoutShiftSymbol()
         {
 
             this.D1.Content = "1";
@@ -153,26 +153,26 @@ namespace KeyBord
                                 (item as Button).Opacity = 0.5;
                                 if (e.Key.ToString() == "LeftShift" || e.Key.ToString() == "RightShift")
                                 {
-                                    CapitalSymbol();
+                                    IfPressedShiftSymbol();
                                     if (flagCapsLock)
                                     {
-                                        CapitalLetters();
+                                        IfPressedShiftLetters();
                                     }
                                     else
                                     {
-                                        LoverLetters();
+                                        WithoutShiftLetter();
                                     }
                                 }
                                 else if (e.Key.ToString() == "Capital")
                                 {
                                     if (flagCapsLock)
                                     {
-                                        CapitalLetters();
+                                        IfPressedShiftLetters();
                                         flagCapsLock = false;
                                     }
                                     else
                                     {
-                                        LoverLetters();
+                                        WithoutShiftLetter();
                                         flagCapsLock = true;
                                     }
                                 }
@@ -207,14 +207,14 @@ namespace KeyBord
                                 (item as Button).Opacity = 1;
                                 if (e.Key.ToString() == "LeftShift" || e.Key.ToString() == "RightShift")
                                 {
-                                    LoverSymbol();
+                                    WithoutShiftSymbol();
                                     if (!flagCapsLock)
                                     {
-                                        CapitalLetters();
+                                        IfPressedShiftLetters();
                                     }
                                     else
                                     {
-                                        LoverLetters();
+                                        WithoutShiftLetter();
                                     }
                                 }
                             }
