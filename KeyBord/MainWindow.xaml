@@ -1,12 +1,203 @@
-﻿<Window x:Class="KeyBord.MainWindow"
+﻿<Window  x:Class="KeyBord.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeyBord"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="KeyBord" WindowStartupLocation="CenterScreen" MinWidth="1200" MinHeight="550" 
+         PreviewKeyDown="MainWindow_KeyDown" PreviewKeyUp="Form_PreviewKeyUp">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Margin" Value="2"></Setter>
+            <Setter Property="FontSize" Value="30"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+       
+        <Grid Grid.Row="0" Grid.ColumnSpan="15">
+            <TextBox Grid.Row="0" FontSize="21" Name="InputText" Margin="2" Background="LightGray" 
+                     Text="Для ввода текста установите курсор в данную область двойным нажатием мыши" MouseDoubleClick="InputText_MouseDoubleClick"/>
+        </Grid>
+        <!--From Ё to BACKSPACE-->
+        <Grid Grid.Row="1" Grid.ColumnSpan="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="ё" Name="LetterY"/>
+            <Button Grid.Column="1" Content="1" Name="D1"/>
+            <Button Grid.Column="2" Content="2" Name="D2"/>
+            <Button Grid.Column="3" Content="3" Name="D3"/>
+            <Button Grid.Column="4" Content="4" Name="D4"/>
+            <Button Grid.Column="5" Content="5" Name="D5"/>
+            <Button Grid.Column="6" Content="6" Name="D6"/>
+            <Button Grid.Column="7" Content="7" Name="D7"/>
+            <Button Grid.Column="8" Content="8" Name="D8"/>
+            <Button Grid.Column="9" Content="9" Name="D9"/>
+            <Button Grid.Column="10" Content="0" Name="D0"/>
+            <Button Grid.Column="11" Content="-" Name="Minus"/>
+            <Button Grid.Column="12" Content="=" Name="Plus"/>
+            <Button Grid.Column="13" Grid.ColumnSpan="2" Content="Backspace" Name="Back"/>
+        </Grid>
+        <!--From TABULATION to BACKSLASH-->
+        <Grid Grid.Row="2" Grid.ColumnSpan="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="32"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Tab"/>
+            <Button Grid.Row="2" Grid.Column="2" Content="й" Name="Q"/>
+            <Button Grid.Row="2" Grid.Column="3" Content="ц" Name="W"/>
+            <Button Grid.Row="2" Grid.Column="4" Content="у" Name="E"/>
+            <Button Grid.Row="2" Grid.Column="5" Content="к" Name="R"/>
+            <Button Grid.Row="2" Grid.Column="6" Content="е" Name="T"/>
+            <Button Grid.Row="2" Grid.Column="7" Content="н" Name="Y"/>
+            <Button Grid.Row="2" Grid.Column="8" Content="г" Name="U"/>
+            <Button Grid.Row="2" Grid.Column="9" Content="ш" Name="I"/>
+            <Button Grid.Row="2" Grid.Column="10" Content="щ" Name="O"/>
+            <Button Grid.Row="2" Grid.Column="11" Content="з" Name="P"/>
+            <Button Grid.Row="2" Grid.Column="12" Content="х" Name="OpenBrackets"/>
+            <Button Grid.Row="2" Grid.Column="13" Content="ъ" Name="CloseBrackets"/>
+            <Button Grid.Row="2" Grid.Column="14" Content="\" Name="Backslash" Grid.ColumnSpan="2"/>
+        </Grid>
+        <!--From CAPS LOCK to ENTER-->
+        <Grid Grid.Row="3" Grid.ColumnSpan="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Name="Capital" Content="Caps Lock"/>
+            <Button Grid.Row="3" Grid.Column="2" Content="ф" Name="A"/>
+            <Button Grid.Row="3" Grid.Column="3" Content="ы" Name="S"/>
+            <Button Grid.Row="3" Grid.Column="4" Content="в" Name="D"/>
+            <Button Grid.Row="3" Grid.Column="5" Content="а" Name="F"/>
+            <Button Grid.Row="3" Grid.Column="6" Content="п" Name="G"/>
+            <Button Grid.Row="3" Grid.Column="7" Content="р" Name="H"/>
+            <Button Grid.Row="3" Grid.Column="8" Content="о" Name="J"/>
+            <Button Grid.Row="3" Grid.Column="9" Content="л" Name="K"/>
+            <Button Grid.Row="3" Grid.Column="10" Content="д" Name="L"/>
+            <Button Grid.Row="3" Grid.Column="11" Content="ж" Name="Semicolon"/>
+            <Button Grid.Row="3" Grid.Column="12" Content="э" Name="Apostrophe"/>
+            <Button Grid.Row="3" Grid.Column="13" Content="Enter" Name="Enter" Grid.ColumnSpan="2"/>
+        </Grid>
+        <!--From LEFTSHIFT LOCK to RIGHTSHIFT-->
+        <Grid Grid.Row="4" Grid.ColumnSpan="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="32"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.ColumnSpan="3" Content="Shift" Name="LeftShift"/>
+            <Button Grid.Column="3" Content="я" Name="Z"/>
+            <Button Grid.Column="4" Content="ч" Name="X"/>
+            <Button Grid.Column="5" Content="с" Name="C"/>
+            <Button Grid.Column="6" Content="м" Name="V"/>
+            <Button Grid.Column="7" Content="и" Name="B"/>
+            <Button Grid.Column="8" Content="т" Name="N"/>
+            <Button Grid.Column="9" Content="ь" Name="M"/>
+            <Button Grid.Column="10" Content="б" Name="Comma"/>
+            <Button Grid.Column="11" Content="ю" Name="Dot"/>
+            <Button Grid.Column="12" Content="." Name="Slash"/>
+            <Button Grid.Column="13" Content="Shift" Name="RightShift" Grid.ColumnSpan="3"/>
+        </Grid>
+        <!--From LEFTCTRL LOCK to RIGHTCTRL-->
+        <Grid Grid.Row="5" Grid.ColumnSpan="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="395"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Ctrl" Name="LeftCtrl"></Button>
+            <Button Grid.Column="1" Content="Win" Name="LWin"></Button>
+            <Button Grid.Column="2" Content="Alt" Name="LAlt"></Button>
+            <Button Grid.Column="3" Content="Space" Name="Space"></Button>
+            <Button Grid.Column="4" Content="Alt" Name="RAlt"></Button>
+            <Button Grid.Column="5" Content="Win" Name="RWin"></Button>
+            <Button Grid.Column="6" Content="Ctrl" Name="RightCtrl"></Button>
+        </Grid>
     </Grid>
 </Window>
